@@ -1,0 +1,29 @@
+{
+  "name": "Intranet",
+  "version": "0.0.0",
+  "authors": [
+    "Ieltxu Algañarás <ieltxu.alganaras@gmail.com>"
+  ],
+  "description": "Intranet Muni Lavalle",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20",
+    "angular-bootstrap": "~0.11.0",
+    "bootstrap": "~3.2.0",
+    "angular-resource": "~1.2.20"
+  }
+}

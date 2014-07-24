@@ -1,0 +1,12 @@
+{
+  "name": "IntranetApi",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.6.x",
+    "socket.io": "1.0.x"
+  },
+  "devDependencies": {
+    "mongoose": "~3.8.13"
+  }
+}

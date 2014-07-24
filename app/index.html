@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>intraApp</title>
+  <script src="vendors/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-resource/angular-resource.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-bootstrap/ui-bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="vendors/bootstrap/dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body ng-app="intrApp" ng-csp>
+  <ng-include src="'templates/navBar.html'"></ng-include>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div ng-view>
+
+        </div>
+
+      </div>
+      <div class="col-md-2"></div>
+
+    </div>
+  </div>
+  e  <script src="js/services/mensajesService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/inicioCtrl.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
