@@ -1,14 +1,11 @@
-
 var Mensaje = require('../models/mensajes');
 
 module.exports = function(router) {
   router.route('/mensajes')
     //Crear nuevo Mensaje
     .post(function(req, res) {
-
       var mensaje = new Mensaje();
-      mensaje.msg = req.body.msg;
-
+      mensaje.mensaje = req.body.mensaje;
       mensaje.save(function(err, mensaje) {
         if (err)
           res.send(err);
@@ -37,23 +34,15 @@ module.exports = function(router) {
     })
     //Modificar Mensajes
     .put(function(req, res) {
-
-      // use our bear model to find the bear we want
       Mensaje.findById(req.params.id, function(err, mensaje) {
-
         if (err)
           res.send(err);
-
-        mensaje.msg = req.body.msg; 	// update the bears info
-
-        // save the bear
+        mensaje.mensaje = req.body.mensaje; 	// update the bears info
         mensaje.save(function(err,mensaje) {
           if (err)
             res.send(err);
-
           res.json(mensaje);
         });
-
       });
     })
     // Borrar Mensajes
@@ -66,4 +55,5 @@ module.exports = function(router) {
         res.json({ message: 'Successfully deleted' });
       });
     });
+
 }
