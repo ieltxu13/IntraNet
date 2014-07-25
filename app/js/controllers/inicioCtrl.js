@@ -3,7 +3,7 @@ controller('inicioCtrl', ['$scope','Mensajes', function($scope, Mensajes) {
     // ============== Declaraciones ============== //
     $scope.mensajes = [];
     $scope.mensaje = {
-      msg : '',
+      mensaje : '',
     };
     // ============== INIT ============== //
     Mensajes.query(function(m){
@@ -19,7 +19,7 @@ controller('inicioCtrl', ['$scope','Mensajes', function($scope, Mensajes) {
     $scope.nuevoMensaje = function() {
       var mensaje = $scope.mensaje;
       Mensajes.save(mensaje, function(mensaje){
-        $scope.mensaje.msg = '';
+        $scope.mensaje.mensaje = '';
         $scope.getMensajes();
       })
     };

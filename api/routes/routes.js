@@ -1,4 +1,5 @@
 var Mensaje = require('../models/mensajes');
+var Usuario = require('../models/usuario');
 
 module.exports = function(router) {
   router.route('/mensajes')
@@ -56,4 +57,16 @@ module.exports = function(router) {
       });
     });
 
+  router.route('/usuarios')
+    .post(function(req, res) {
+      var usuario = new Usuario();
+      usuario.usuario = req.body.usuario;
+      usuario.clave   = req.body.clave;
+      usuario.save(function(err, usuario) {
+        if (err)
+          res.send(err);
+        res.status(201);
+        res.json(usuario);
+      });
+    });
 }

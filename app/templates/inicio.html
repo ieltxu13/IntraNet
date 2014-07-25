@@ -3,9 +3,9 @@
 </div>
 <div id="name">
   <form id="mensace" action="" ng-submit="nuevoMensaje()">
-    <input class="form-control" type="text" name="some_name" placeholder="Nuevo Mensaje" ng-model="mensaje.msg">
+    <input class="form-control" type="text" name="some_name" placeholder="Nuevo Mensaje" ng-model="mensaje.mensaje">
   </form>
 </div>
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="mensaje in mensajes">{{mensaje.msg}}</li>
+  <li class="list-group-item" ng-repeat="mensaje in mensajes">{{mensaje.mensaje}}</li>
 </ul>

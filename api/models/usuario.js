@@ -3,6 +3,7 @@ var Schema       = mongoose.Schema;
 
 var UsuarioSchema = new Schema({
   nombre: String,
+  usuario: String,
   cargo: String,
   clave: String,
   oficina: String,
@@ -17,4 +18,4 @@ var UsuarioSchema = new Schema({
   ultimoAcceso : {type: Date}
 });
 
-module.exports = mongoose.model("Usuario", UsuarioShema);
+module.exports = mongoose.model("Usuario", UsuarioSchema);

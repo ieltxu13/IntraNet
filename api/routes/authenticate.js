@@ -1,25 +1,27 @@
   var jwt        = require('jsonwebtoken');
+  var Usuario = require('../models/usuario');
 
 module.exports = function(authenticate){
 
   authenticate.route('/')
 
   .post(function (req, res) {
-    //TODO validate req.body.username and req.body.password
-    //if is invalid, return 401
-    if (!(req.body.username === 'username' && req.body.password === 'password')) {
-      res.send(401, 'Wrong user or password');
-      return;
-    }
-    var profile = {
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'john@doe.com',
-      id: 123
-    };
-      // We are sending the profile inside the token
-    var token = jwt.sign(profile, 'sarabaram', { expiresInMinutes: 60*5 });
+    var user = 'nada';
+    Usuario.findOne({'usuario' : req.body.usuario, 'clave' : req.body.clave}, 'nombre usuario cargo oficina ',function(err,u){
+      if(err)
+        res.send(err);
+      user = u;
+      console.log(user);
 
-    res.json({ token: token });
-    });
+      if(user) {
+        // We are sending the profile inside the token
+        var token = jwt.sign(user, 'sarabaram', { expiresInMinutes: 60*5 });
+        res.json({ token: token, user : user });
+      } else {
+        res.send(401, "Credenciales Incorrectas");
+      }
+
+})
+})
+
 };
