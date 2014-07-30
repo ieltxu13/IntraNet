@@ -8,9 +8,31 @@ angular.module('intrApp')
     return  {
         requestUser: function(  )
         {
-              if($window.sessionStorage.user && $window.sessionStorage.token) {
-                authenticatedUser = $window.sessionStorage.user;
-              }
+          var deferred = $q.defer();
+            if($window.sessionStorage.user && $window.sessionStorage.token) {
+
+              $http.get('http://192.168.1.37:3000/api/usuarios/'+$window.sessionStorage.user).success(function(user)
+              {
+                  if(user)
+                  {
+                      authenticatedUser = user;
+                      deferred.resolve(user);
+                  }
+                  else
+                  {
+                      deferred.reject('Error al cargar usuario');
+                  }
+              }).error(function(error)
+              {
+                  deferred.reject(error);
+              });
+
+            }
+            else
+            {
+                deferred.reject();
+            }
+         return deferred.promise;
         },
 
         getUser: function()
@@ -27,13 +49,13 @@ angular.module('intrApp')
         {
             var deferred = $q.defer();
             console.log(credentials);
-            $http.post('http://localhost:3000/auth', credentials).success(function(data)
+            $http.post('http://192.168.1.37:3000/auth', credentials).success(function(data)
             {
                 if(data.user)
                 {
                     authenticatedUser = data.user;
                     $window.sessionStorage.token = data.token;
-                    $window.sessionStorage.user = data.user;
+                    $window.sessionStorage.user = data.user._id;
                     deferred.resolve(data.user);
                 }
                 else
@@ -53,11 +75,13 @@ angular.module('intrApp')
         logout: function()
         {
             authenticatedUser = null;
+            $window.sessionStorage.token = null;
+            $window.sessionStorage.user = null;
         },
 
-        isDeveloper: function()
+        isAdmin: function()
         {
-            return this.exists() && authenticatedUser.type == 'developer';
+            return this.exists() && authenticatedUser.rol == 'Administrador';
         }
     }
   });

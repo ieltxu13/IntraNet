@@ -3,32 +3,40 @@
 
 <head>
   <title>intraApp</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="vendors/angular/angular.js" type="text/javascript" charset="utf-8"></script>
   <script src="vendors/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
   <script src="vendors/angular-resource/angular-resource.js" type="text/javascript" charset="utf-8"></script>
-  <script src="vendors/angular-bootstrap/ui-bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-tags/dist/angular-tags-0.2.10-tpls.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/ng-tags-input/ng-tags-input.js" type="text/javascript" charset="utf-8"></script>
   <script src="vendors/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/bootstrap/dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
   <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 
 <body ng-app="intrApp" ng-csp>
-  <ng-include src="'templates/navBar.html'"></ng-include>
+  <div ng-controller="authCtrl">
+    <div ng-if="isLoggedIn()" ng-include src="'templates/navBar.html'"></div>
+  </div>
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2"></div>
-      <div class="col-md-8">
+      <div class="col-md-10">
         <div ng-view>
-
         </div>
-
       </div>
-      <div class="col-md-2"></div>
-
     </div>
   </div>
   <script src="js/services/mensajesService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/usuariosService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/busquedaUsuarios.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/mensajesUsuarioService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/oficinas.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/services/authentication.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/services/authInterceptor.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/services/application.js" type="text/javascript" charset="utf-8"></script>
@@ -37,6 +45,9 @@
   <script src="js/controllers/inicioCtrl.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/controllers/testCtrl.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/controllers/authCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/usuariosCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/mensajesCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/loadingCtrl.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 angular.module('intrApp')
   .factory('Application', function Application() {
@@ -21,7 +21,6 @@ angular.module('intrApp')
         makeReady: function()
         {
             ready = true;
-
             callListeners();
         },
 

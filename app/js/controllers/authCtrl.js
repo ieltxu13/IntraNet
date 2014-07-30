@@ -16,7 +16,24 @@ controller('authCtrl', ['$scope','Authentication','$location', function($scope, 
       }, function(){
         $scope.alert = 'Credenciales Incorrectas';
       })
-
     };
+    $scope.logout = function() {
+      Authentication.logout();
+      $scope.credetials = {};
+      $location.path('/login')
+    };
+    $scope.isLoggedIn = function() {
+      return Authentication.exists();
+    };
+    $scope.isAdmin = function() {
+      return Authentication.isAdmin();
+    }
+    $scope.getNombre = function() {
+      return Authentication.getUser().nombre;
+    }
+    $scope.getId = function() {
+      return Authentication.getUser()._id;
+    }
+
   }
 ]);

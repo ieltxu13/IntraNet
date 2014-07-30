@@ -24,6 +24,12 @@
     "angular-route": "~1.2.20",
     "angular-bootstrap": "~0.11.0",
     "bootstrap": "~3.2.0",
-    "angular-resource": "~1.2.20"
+    "angular-resource": "~1.2.20",
+    "angular-tags": "~0.2.10",
+    "ng-tags-input": "2.0.1",
+    "awesome-bootstrap-checkbox": "~0.1.2"
+  },
+  "resolutions": {
+    "angular": "1.2.20"
   }
 }

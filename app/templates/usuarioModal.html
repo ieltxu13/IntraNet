@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
+  <h4 class="modal-title">Nuevo Usuario</h4>
+</div>
+<div class="modal-body">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-click="toggleOficina()">Es oficina
+    </label>
+  </div>
+  <form role="form" ng-submit="crear()" name="frm">
+    <div class="form-group" ng-hide="esOficina">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Nombre y Apellido"
+      ng-model="usuario.nombre" ng-required="!esOficina">
+    </div>
+    <div class="form-group">
+      <label for="usuario">Usuario</label>
+      <input type="text" class="form-control" id="usuario" placeholder="Nombre de usuario"
+      ng-model="usuario.usuario" required>
+    </div>
+    <div class="form-group" ng-hide="esOficina">
+      <label for="rol">Rol</label>
+      <select class="form-control" id="rol"
+      ng-model="usuario.rol" ng-required="!esOficina">
+        <option>Usuario</option>
+        <option>Jefe de Area</option>
+        <option>Intendente</option>
+        <option>Administrador</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="oficina">Oficina</label>
+      <select class="form-control" id="oficina"
+      ng-model="usuario.oficina" required
+      ng-options="oficina.nombre as oficina.nombre for oficina in oficinas"
+      ng-selected="usuario.oficina">
+      </select>
+    </div>
+    <div class="form-group" ng-hide="esOficina">
+      <label for="cargo">Cargo</label>
+      <input type="text" class="form-control" id="cargo" placeholder="Cargo que ocupa"
+      ng-model="usuario.cargo" ng-required="!esOficina">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-class="{'disabled' : frm.$invalid}">Crear</button>
+  </form>
+</div>
+<div class="modal-footer">
+</div>

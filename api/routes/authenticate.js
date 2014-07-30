@@ -7,11 +7,10 @@ module.exports = function(authenticate){
 
   .post(function (req, res) {
     var user = 'nada';
-    Usuario.findOne({'usuario' : req.body.usuario, 'clave' : req.body.clave}, 'nombre usuario cargo oficina ',function(err,u){
+    Usuario.findOne({'usuario' : req.body.usuario, 'clave' : req.body.clave}, 'nombre usuario cargo oficina rol',function(err,u){
       if(err)
         res.send(err);
       user = u;
-      console.log(user);
 
       if(user) {
         // We are sending the profile inside the token
