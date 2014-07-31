@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "express": "4.6.x",
-    "socket.io": "1.0.x",
+    "socket.io": "~1.0.6",
     "jsonwebtoken": "~0.4.1",
     "express-jwt": "~0.3.1",
     "mongoose-unique-validator": "~0.3.0"

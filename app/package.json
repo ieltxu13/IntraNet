@@ -13,5 +13,13 @@
     "gulp": "~3.8.6",
     "gulp-less": "~1.3.2",
     "gulp-connect": "~2.0.6"
+    "express": "4.6.x",
+    "socket.io": "~1.0.6",
+    "jsonwebtoken": "~0.4.1",
+    "express-jwt": "~0.3.1",
+    "mongoose-unique-validator": "~0.3.0"
+  },
+  "devDependencies": {
+    "mongoose": "~3.8.13"
   }
 }

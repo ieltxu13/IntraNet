@@ -5,7 +5,7 @@
     "Ieltxu Algañarás <ieltxu.alganaras@gmail.com>"
   ],
   "description": "Intranet Muni Lavalle",
-  "main": "index.html",
+  "main": "public/index.html",
   "moduleType": [
     "node"
   ],

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>intraApp</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="vendors/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-resource/angular-resource.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/angular-tags/dist/angular-tags-0.2.10-tpls.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/ng-tags-input/ng-tags-input.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="vendors/bootstrap/dist/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://localhost:3001/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body ng-app="intrApp" ng-csp>
+  <div ng-controller="authCtrl">
+    <div ng-if="isLoggedIn()" ng-include src="'templates/navBar.html'"></div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-costados">
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item">Morbi leo risus</a>
+          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+          <a href="#" class="list-group-item">Vestibulum at eros</a>
+        </div>
+      </div>
+      <div class="col-md-7 col-central">
+        <div ng-view>
+        </div>
+      </div>
+      <div class="col-md-3 col-costados" ng-if="true">
+        <div ng-controller="chatCtrl">
+          <accordion close-others="true">
+            <accordion-group heading="Static Header, initially expanded">
+              This content is straight in the template.
+            </accordion-group>
+            <accordion-group heading="Dynamic Body Content">
+              <p>The body of the accordion group grows to fit the contents</p>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/services/mensajesService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/usuariosService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/busquedaUsuarios.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/mensajesUsuarioService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/ChatService.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/oficinas.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/authentication.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/authInterceptor.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/application.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/services/routeFilter.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/acl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/inicioCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/testCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/authCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/usuariosCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/mensajesCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/loadingCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/controllers/chatCtrl.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/directives/chatBox.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
